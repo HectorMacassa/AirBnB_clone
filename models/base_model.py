@@ -19,7 +19,7 @@ class BaseModel:
         Initializes a new instance of the BaseModel class.
 
         Args:
-            *args: 
+            *args:
             **kwargs: Key-value pairs of attributes.
         """
         if kwargs:
