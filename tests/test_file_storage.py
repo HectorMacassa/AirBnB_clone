@@ -57,11 +57,15 @@ class TestFileStorage(unittest.TestCase):
         Test reload method of the FileStorage class
         """
         model = BaseModel()
+        user = User()
         self.storage.new(model)
+        self.storage.new(user)
         self.storage.save()
         self.storage.reload()
         key = f"{model.__class__.__name__}.{model.id}"
-        self.assertIn(key, self.storage.all().keys())
+        key = f"{user.__class__.__name__}.{user.id}"
+        self.assertIn(key_model, self.storage.all().keys())
+        self.assertIn(key_user, self.storage.all().keys())
 
 
 if __name__ == "__main__":
