@@ -51,9 +51,14 @@ class FileStorage:
             with open(self.__file_path, "r") as file:
                 json_objects = json.load(file)
                 from models.base_model import BaseModel
+                from models.user import User
 
                 for key, obj_dict in json_objects.items():
                     obj_class = obj_dict["__class__"]
-                    self.__objects[key] = eval(obj_class)(**obj_dict)
+                    if obj_class == "BaseModel":
+                        self.__objects[key] = BaseModel(**obj_dict)
+                    elif obj_class == "User":
+                        self.__objects[key] = User(**obj_dict)
+
         except FileNotFoundError:
             pass
