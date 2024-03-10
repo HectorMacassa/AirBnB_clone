@@ -52,6 +52,11 @@ class FileStorage:
                 json_objects = json.load(file)
                 from models.base_model import BaseModel
                 from models.user import User
+                from models.state import State
+                from models.city import City
+                from models.amenity import Amenity
+                from models.place import Place
+                from models.review import Review
 
                 for key, obj_dict in json_objects.items():
                     obj_class = obj_dict["__class__"]
@@ -59,6 +64,16 @@ class FileStorage:
                         self.__objects[key] = BaseModel(**obj_dict)
                     elif obj_class == "User":
                         self.__objects[key] = User(**obj_dict)
+                    elif obj_class == "State":
+                        self.__objects[key] = State(**obj_dict)
+                    elif obj_class == "City":
+                        self.__object[key] = City(**obj_dict)
+                    elif obj_class == "Amenity":
+                        self.__object[key] = Amenity(**obj_dict)
+                    elif obj_class == "Place":
+                        self.__object[key] = Place(**obj_dict)
+                    elif obj_class == "Review":
+                        self.__object[key] = Review(**obj_dict)
 
         except FileNotFoundError:
             pass

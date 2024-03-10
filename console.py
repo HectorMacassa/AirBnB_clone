@@ -16,7 +16,15 @@ class HBNBCommand(cmd.Cmd):
         prompt (str): The command prompt
     """
     prompt = "(hbnb) "
-    classes = {"BaseModel": BaseModel, "User": User}
+    classes = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "State": State,
+        "City": City,
+        "Amenity": Amenity,
+        "Place": Place,
+        "Review": Review
+        }
 
     def do_quit(self, arg):
         """
