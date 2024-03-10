@@ -4,6 +4,7 @@ This module
 """
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
@@ -29,7 +30,7 @@ class HBNBCommand(cmd.Cmd):
         """
         EOF signal to exit the program
 
-        Usage: Ctrl + D
+        Usage: Ctrl+D
         """
         print()
         return True

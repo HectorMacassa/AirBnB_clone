@@ -5,6 +5,7 @@ This module defines tests forFileStorage class
 import unittest
 import os
 from models.base_model import BaseModel
+from models.user import User
 from models.engine.file_storage import FileStorage
 
 
@@ -62,8 +63,8 @@ class TestFileStorage(unittest.TestCase):
         self.storage.new(user)
         self.storage.save()
         self.storage.reload()
-        key = f"{model.__class__.__name__}.{model.id}"
-        key = f"{user.__class__.__name__}.{user.id}"
+        key_model = f"{model.__class__.__name__}.{model.id}"
+        key_user = f"{model.__class__.__name__}.{user.id}"
         self.assertIn(key_model, self.storage.all().keys())
         self.assertIn(key_user, self.storage.all().keys())
 
