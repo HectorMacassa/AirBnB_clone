@@ -59,3 +59,12 @@
 .user {
   margin: 10px 0;
 }
+
+.guest_icon {
+  display: inline-block;
+  background-image: url("../images/icon_group.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 45px;
+  height: 45px;
+}
